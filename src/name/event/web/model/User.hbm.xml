@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 Aug, 2014 5:14:05 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="name.event.web.model.User" table="user" catalog="eventdb">
+        <id name="iuser" type="java.lang.Integer">
+            <column name="iuser" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="oauth" type="string">
+            <column name="oauth" length="45" not-null="true" />
+        </property>
+        <property name="mailSubscription" type="char">
+            <column name="mail_subscription" length="1" not-null="true" />
+        </property>
+        <property name="IAgreePolicy" type="char">
+            <column name="i_agree_policy" length="1" not-null="true" />
+        </property>
+        <property name="createdOn" type="timestamp">
+            <column name="created_on" length="19" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_by" />
+        </property>
+        <property name="modifiedOn" type="timestamp">
+            <column name="modified_on" length="19" />
+        </property>
+        <property name="modifiedBy" type="java.lang.Integer">
+            <column name="modified_by" />
+        </property>
+        <set name="events" table="event" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="iuser" not-null="true" />
+            </key>
+            <one-to-many class="name.event.web.model.Event" />
+        </set>
+    </class>
+</hibernate-mapping>

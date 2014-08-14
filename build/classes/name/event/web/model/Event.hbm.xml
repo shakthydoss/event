@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 Aug, 2014 5:14:05 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="name.event.web.model.Event" table="event" catalog="eventdb">
+        <id name="ievent" type="java.lang.Integer">
+            <column name="ievent" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="name.event.web.model.User" fetch="select">
+            <column name="iuser" not-null="true" />
+        </many-to-one>
+        <many-to-one name="category" class="name.event.web.model.Category" fetch="select">
+            <column name="icategory" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="100" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500" not-null="true" />
+        </property>
+        <property name="organizer" type="string">
+            <column name="organizer" length="45" not-null="true" />
+        </property>
+        <property name="website" type="string">
+            <column name="website" length="100" not-null="true" />
+        </property>
+        <property name="startDate" type="date">
+            <column name="start_date" length="10" not-null="true" />
+        </property>
+        <property name="endDate" type="date">
+            <column name="end_date" length="10" />
+        </property>
+        <property name="addLine1" type="string">
+            <column name="add_line_1" length="45" />
+        </property>
+        <property name="addLine2" type="string">
+            <column name="add_line_2" length="45" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="45" />
+        </property>
+        <property name="region" type="string">
+            <column name="region" length="45" />
+        </property>
+        <property name="postalCode" type="java.lang.Integer">
+            <column name="postal_code" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="5" />
+        </property>
+        <property name="active" type="java.lang.Character">
+            <column name="active" length="1" />
+        </property>
+        <property name="createdOn" type="timestamp">
+            <column name="created_on" length="19" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_by" />
+        </property>
+        <property name="modifiedOn" type="timestamp">
+            <column name="modified_on" length="19" />
+        </property>
+        <property name="modifiedBy" type="java.lang.Integer">
+            <column name="modified_by" />
+        </property>
+    </class>
+</hibernate-mapping>

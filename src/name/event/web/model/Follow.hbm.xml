@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 Aug, 2014 5:14:05 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="name.event.web.model.Follow" table="follow" catalog="eventdb">
+        <id name="ifollow" type="java.lang.Integer">
+            <column name="ifollow" />
+            <generator class="identity" />
+        </id>
+        <property name="ievent" type="int">
+            <column name="ievent" not-null="true" />
+        </property>
+        <property name="iuser" type="int">
+            <column name="iuser" not-null="true" />
+        </property>
+        <property name="createdOn" type="timestamp">
+            <column name="created_on" length="19" />
+        </property>
+        <property name="createdBy" type="java.lang.Integer">
+            <column name="created_by" />
+        </property>
+        <property name="modifiedOn" type="timestamp">
+            <column name="modified_on" length="19" />
+        </property>
+        <property name="modifiedBy" type="java.lang.Integer">
+            <column name="modified_by" />
+        </property>
+    </class>
+</hibernate-mapping>
